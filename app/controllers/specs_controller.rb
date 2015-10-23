@@ -1,5 +1,7 @@
 class SpecsController < ApplicationController
   
+  before_filter :cors
+
   def create
   	@spec = Spec.new(spec_params)
 
@@ -29,5 +31,12 @@ class SpecsController < ApplicationController
 
   	def spec_params
   		params.permit(:spec,:key)
+  	end
+
+  	def cors
+  		headers['Access-Control-Allow-Origin'] = '*'
+  		headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
+  		headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
+  		headers['Access-Control-Max-Age'] = "1728000" 
   	end
 end
