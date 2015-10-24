@@ -13,7 +13,7 @@ class SpecsController < ApplicationController
   end
 
   def read
-  	@spec = Spec.find_by(key:params[:key])
+  	@spec = Spec.where(:key => params[:key])
   	if @spec
   		render :json => {:spec => @spec}
   	else

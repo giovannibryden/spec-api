@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20151023203330) do
 
   create_table "specs", force: :cascade do |t|
     t.string   "key"
-    t.string   "spec"
+    t.text     "spec"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
