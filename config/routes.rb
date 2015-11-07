@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  get 'specs/create'
+  match 'specs/create'
 
-  get 'specs/read'
+  match 'specs/read'
 
-  get 'specs/update'
+  match 'specs/update'
 
-  get 'specs/destroy'
+  match 'specs/destroy'
 
-  get '/' => 'specs#welcome'
+  match '/' => 'specs#welcome'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
