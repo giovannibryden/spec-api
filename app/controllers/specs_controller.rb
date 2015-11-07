@@ -1,9 +1,10 @@
 class SpecsController < ApplicationController
   
   before_filter :cors
+  skip_before_action :verify_authenticity_token
 
   def create
-  	@spec = Spec.new(params)
+  	@spec = Spec.new(spec_params)
 
   	if @spec.save
   		render :json => {:status => "1",:message => "Successfully created a spec.",:spec=> @spec}
@@ -30,7 +31,7 @@ class SpecsController < ApplicationController
   private
 
   	def spec_params
-  		# params.permit(:spec,:key)
+  		params.permit(:spec,:key)
   	end
 
   	def cors
