@@ -3,7 +3,7 @@ class SpecsController < ApplicationController
   before_filter :cors
 
   def create
-  	@spec = Spec.new(spec_params)
+  	@spec = Spec.new(params)
 
   	if @spec.save
   		render :json => {:status => "1",:message => "Successfully created a spec.",:spec=> @spec}
@@ -30,7 +30,7 @@ class SpecsController < ApplicationController
   private
 
   	def spec_params
-  		params.permit(:spec,:key)
+  		# params.permit(:spec,:key)
   	end
 
   	def cors
